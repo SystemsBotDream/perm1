@@ -558,4 +558,4 @@ client.user.setStatus("dnd")
      }
      });
 
-client.login('NTE5MjQyMDE1ODM0Mzc0MTY3.DucgiQ.Bdveh6WJ2najxHSCdnYaVxa_8Ic');
+client.login('');
