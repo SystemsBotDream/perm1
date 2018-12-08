@@ -550,7 +550,7 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : EX Clan ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`9eanh | صيانة`,"http://twitch.tv/Dream")
+client.user.setGame(`.help | Server ${client.guilds.size} 1.1v`,"http://twitch.tv/Dream")
 client.user.setStatus("dnd")
 });
 
@@ -784,5 +784,36 @@ client.on('message',async message => {
   });
   }
 });
+
+client.on('message', message => {
+    if(message.content == '.botservers') {
+             if(!message.author.id === '472413769700474901') return;
+    var gimg;
+    var gname;
+    var gmemb;
+    var gbots;
+    var groles;
+    var servers = client.guilds;
+    servers.forEach((g)=>{
+    gname = g.name;
+    gimg = g.iconURL;
+    gmemb = g.members.size;
+    gbots = g.members.filter(m=>m.bot).size;
+    groles = g.roles.map(r=> {return r.name});
+    let serv = new Discord.RichEmbed()
+    .setAuthor(gname,gimg)
+    .setThumbnail(gimg)
+    .addField('Server bots',gbots)
+    .addField('Server Member Count',gmemb = g.members.size)
+    .setColor('RANDOM')
+    message.channel.send(`
+    Server Name : **${gname}**
+    Server MemberCount : **${gmemb} **
+            
+            `);
+          message.channel.sendEmbed(serv);
+    }) 
+    }
+    });
 
 client.login(process.env.BOT_TOKEN);
