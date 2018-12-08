@@ -48,7 +48,9 @@ client.on('message', message => {
   **__.help__->**تظهر لك هذي القائمة
   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   **__.inv__->**لدعوة البوت
-  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-  `)
+  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  **__.support__->**سيرفر السبورت
+  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-`)
      message.author.sendEmbed(embed)
      
      }
@@ -543,7 +545,7 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : EX Clan ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`.help | Server ${client.guilds.size}`,"http://twitch.tv/Dream")
+client.user.setGame(`9eanh | صيانة`,"http://twitch.tv/Dream")
 client.user.setStatus("dnd")
 });
 
@@ -616,5 +618,15 @@ if (message.content.startsWith(prefix + "uptime")) {
 
 }
 });
+
+   client.on("message", message => {
+      if (message.content === ".support") {
+       const embed = new Discord.RichEmbed() 
+           .setColor("#57FEFF")
+           .setDescription(`سيرفر السبورت
+https://discord.gg/YRu4A7Z`)
+     message.author.sendEmbed(embed)
+     }
+     });
 
 client.login(process.env.BOT_TOKEN);
