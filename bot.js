@@ -61,7 +61,8 @@ client.on('message', message => {
      const embed = new Discord.RichEmbed() 
          .setColor("#FFFF00")
          .setDescription(`**:video_game:   الالعاب|Games**
-SoOn`)
+ ** __.fast__->**لعبة سرعه
+  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-`)
    message.author.sendEmbed(embed)
    
    }
