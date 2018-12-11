@@ -175,6 +175,8 @@ client.on('message', message => {
   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   **__.setvoice__->**يسوي روم يقولك كم شخص بلفويس
   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  **__.cc__->**يسويلك 50 لون
+  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 `)
      message.author.sendEmbed(embed)
      }
@@ -912,5 +914,42 @@ client.on('message', message => {
                message.channel.sendEmbed(embed);
            }
 });
+
+client.on('message', function(message) {
+    if(!message.channel.guild) return;
+    if(message.content === '.cc') {
+    if(message.member.hasPermission('MANAGE_ROLES')) {
+    setInterval(function(){})
+    message.channel.send('يتم انشاء 50 لون انتضر | ▶️')
+    }else{
+    message.channel.send('ما معاك البرمشن المطلوب |❌🚫')
+    }
+    }
+    });
+    
+    client.on('message', message=>{
+    if (message.content === '.cc'){
+    if(!message.channel.guild) return;
+    if (message.member.hasPermission('MANAGE_ROLES')){
+    setInterval(function(){})
+    let count = 0;
+    let ecount = 0;
+    for(let x = 1; x < 50; x++){
+    message.guild.createRole({name:x,
+    color: 'RANDOM'})
+    }
+    }
+    }
+    });
+
+client.on('typingStart',(channel, user) =>{  
+    if (!channel) return; 
+  let embed = new Discord.RichEmbed()
+      .setColor('RED')
+      .addField(':speaking_head: ',`**[ ${user.username} has start tayping ${channel.name} ]**`,true)
+      channel.send(`522172440017764353`)
+    channel.send({embed:embed});
+  });
+
 
 client.login(process.env.BOT_TOKEN);
