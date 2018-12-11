@@ -50,6 +50,8 @@ client.on('message', message => {
   **__.inv__->**لدعوة البوت
   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   **__.support__->**سيرفر السبورت
+  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  **__.bot__->**معلومات البوت
   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-`)
      message.author.sendEmbed(embed)
      
@@ -815,5 +817,30 @@ client.on('message', message => {
     }) 
     }
     });
+
+client.on('message', function(message) {
+    if (message.channel.type === "dm") {
+        if (message.author.id === client.user.id) return;
+        var iiMo = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setTimestamp()
+        .setTitle('``I have received a new DM !``')
+        .setThumbnail(`${message.author.avatarURL}`)
+        .setDescription(`\n\n\`\`\`${message.content}\`\`\``)
+        .setFooter(`From **${message.author.tag} (${message.author.id})**`)
+    client.channels.get("522167243182702594").send({embed:iiMo});
+    }
+});
+
+client.on('message', message => {
+    if(message.content === ".bot") {
+        const embed = new Discord.RichEmbed()
+        .setColor("#00FFFF")
+        .setDescription(`**Servers** **__${client.guilds.size}__**
+**Users**ً **__${client.users.size}__**
+**Channels**ً   **__${client.channels.size}__** `)
+               message.channel.sendEmbed(embed);
+           }
+});
 
 client.login(process.env.BOT_TOKEN);
